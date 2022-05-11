@@ -1,5 +1,5 @@
 #![allow(unused)]
-use std::collections::{HashSet, BinaryHeap,HashMap};
+use std::collections::{HashSet, BinaryHeap};
 use std::cmp::Reverse;
 
 // references backtracking algo from https://towardsdatascience.com/solving-sudoku-with-ai-d6008993c7de
