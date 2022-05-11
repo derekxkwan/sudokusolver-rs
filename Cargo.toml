@@ -7,3 +7,12 @@ edition = "2021"
 
 [dependencies]
 ordered-float = { version = "3.0", default-features = false }
+csv = "1.1"
+
+[lib]
+name = "sudokusolver_rs"
+path = "src/lib.rs"
+
+[[bin]]
+name = "sudokusolver_bin"
+path = "src/bin.rs"

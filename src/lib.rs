@@ -1,22 +1,10 @@
 #![allow(unused)]
-use std::collections::{HashSet, BinaryHeap,HashMap,VecDeque};
+use std::collections::{HashSet, BinaryHeap,HashMap};
 use ordered_float::NotNan; // 2.7.0
 use std::cmp::Reverse;
 
 // references backtracking algo from https://towardsdatascience.com/solving-sudoku-with-ai-d6008993c7de
 
-
-// problem from https://en.wikipedia.org/wiki/Sudoku
-static TESTPROB: [usize; 81]= [
-        5,3,0,0,7,0,0,0,0,
-        6,0,0,1,9,5,0,0,0,
-        0,9,8,0,0,0,0,6,0,
-        8,0,0,0,6,0,0,0,3,
-        4,0,0,8,0,3,0,0,1,
-        7,0,0,0,2,0,0,0,6,
-        0,6,0,0,0,0,2,8,0,
-        0,0,0,4,1,9,0,0,5,
-        0,0,0,0,8,0,0,7,9];
 
 const DIM: usize = 9;
 const DIM2: usize = DIM*DIM;
@@ -133,7 +121,7 @@ fn backtracking(_to_solve: [usize; DIM2], _doms: [HashSet<usize>; DIM2], _to_pic
 
     (ret_sol, found_sol)
 }
-fn solve(_to_solve: &[usize; DIM2]) -> Option<[usize; DIM2]>{
+pub fn solve(_to_solve: &[usize; DIM2]) -> Option<[usize; DIM2]>{
        let mut sp: [HashSet<usize>; DIM2] = [(); DIM2].map(|_| HashSet::from([1,2,3,4,5,6,7,8,9]));
        let mut rn: [HashSet<usize>; DIM2] = [(); DIM2].map(|_| HashSet::from([])); //row neighbors
        let mut cn: [HashSet<usize>; DIM2] = [(); DIM2].map(|_| HashSet::from([])); //col neighbors
@@ -213,16 +201,3 @@ fn solve(_to_solve: &[usize; DIM2]) -> Option<[usize; DIM2]>{
     ret_sol
 }
 
-fn main() {
-    let soln = solve(&TESTPROB);
-    match soln {
-        Some(x) => {
-            for y in x.chunks(DIM) {
-                println!("{:?}", y);
-            };
-        },
-
-        None => println!("no solution found"),
-        
-    };
-}
