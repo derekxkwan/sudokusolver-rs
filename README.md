@@ -1,6 +1,6 @@
 # sudokusolver-rs
 
-References the backtracking search algorithm as described in this [towardsdatascience article](https://towardsdatascience.com/solving-sudoku-with-ai-d6008993c7de) by Justin Svegliato and solves a sudoku puzzle using constraint propagation (in Rust!).
+References the backtracking search algorithm as described in this [towardsdatascience article](https://towardsdatascience.com/solving-sudoku-with-ai-d6008993c7de) by Justin Svegliato and solves a sudoku puzzle using constraint propagation (in Rust!). Uses the Most Constrained Variable heuristic in a binary min heap to choose cells to fill and to help speed things along.
 
 ## usage
 problem file to open is passed as the first argument and takes the form of comma-separated values (9 per row, see the problems folder for examples). If no file path is given, it defaults to testprob1 (described below)
